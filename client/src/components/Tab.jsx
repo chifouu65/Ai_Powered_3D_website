@@ -15,7 +15,7 @@ const Tab = ({tab, isFilterTab, isActiveTab, handleClick}) => {
     <div
       key={tab.name}
       className={`tab-btn ${isFilterTab ? 'rounded-full glassmorhism' : 'rounded-4'}`}
-      onClick={() => handleClick}
+      onClick={handleClick}
       style={activeStyle}
     >
       <img
