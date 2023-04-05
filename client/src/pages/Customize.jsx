@@ -52,20 +52,19 @@ const Customize = () => {
 
     try {
       setGeneratingImg(true);
-
-      const response = await axios.post('http://localhost:3000/api/v1/dalle', {
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
+      console.log(
+        JSON.stringify({
           prompt: prompt,
-          type: type
         })
+      )
+      const res = await axios.post(`${config.development.backendUrl}/image`, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        prompt: prompt,
       })
-
-      const data = await response.json();
-
-      handleDecals(type, `data:image/png;base64,${data.photo}`)
+      const image = res.data.photo;
+      handleDecals(type, `data:image/png;base64,${image}`)
     } catch (error) {
       alert(error)
     } finally {

@@ -27,7 +27,6 @@ const AIPicker = ({ prompt, setPrompt, generatingImg, handleSubmit }) => {
               handleClick={() => handleSubmit('logo')}
               customStyles="text-xs"
             />
-
             <Button 
               type="filled"
               title="AI Full"
